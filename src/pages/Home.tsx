@@ -135,7 +135,7 @@ export default function Home() {
               Austria's Premier Security Boutique
             </div>
 
-            <h1 className="hero-title heading-xl mb-8" style={{ overflow: 'hidden' }}>
+            <h1 className="hero-title heading-xl mb-8" style={{ overflow: 'visible', paddingBottom: '0.15em' }}>
               {'Intelligence-Led'.split('').length && (
                 <>
                   <span className="inline-block" style={{ opacity: 0 }}>Intelligence-Led</span>
@@ -200,7 +200,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col">
-          {services.map((service, i) => (
+          {services.map((service) => (
             <Link
               key={service.num}
               to={service.href}
