@@ -34,11 +34,15 @@ export default function Navbar() {
     <>
       <nav
         className={clsx(
-          'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500',
-          scrolled
-            ? 'bg-dark/85 backdrop-blur-xl border-b border-white/[0.04]'
-            : 'bg-dark/10 backdrop-blur-none border-b border-transparent'
+          'fixed top-0 left-0 right-0 z-50',
+          scrolled ? 'border-b border-white/[0.04]' : 'border-b border-transparent'
         )}
+        style={{
+          backgroundColor: scrolled ? 'rgba(10,10,10,0.85)' : 'rgba(10,10,10,0)',
+          backdropFilter: scrolled ? 'blur(20px)' : 'blur(0px)',
+          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'blur(0px)',
+          transition: 'background-color 500ms ease, backdrop-filter 500ms ease, -webkit-backdrop-filter 500ms ease, border-color 500ms ease',
+        }}
       >
         <div className="section-padding flex items-center justify-between h-20 lg:h-24">
           <Link to="/" className="flex items-center gap-3 relative z-50">
