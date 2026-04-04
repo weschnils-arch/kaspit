@@ -34,10 +34,10 @@ export default function Navbar() {
     <>
       <nav
         className={clsx(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500',
           scrolled
-            ? 'bg-dark/80 backdrop-blur-xl border-b border-white/[0.04]'
-            : 'bg-transparent'
+            ? 'bg-dark/85 backdrop-blur-xl border-b border-white/[0.04]'
+            : 'bg-dark/10 backdrop-blur-none border-b border-transparent'
         )}
       >
         <div className="section-padding flex items-center justify-between h-20 lg:h-24">
