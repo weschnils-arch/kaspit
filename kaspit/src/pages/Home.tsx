@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MetalCTA from '../components/MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -135,12 +136,8 @@ export default function Home() {
               for elite security solutions.
             </p>
             <div className="hero-reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-              <Link to="/contact" className="btn-primary">
-                <span>Request Risk Assessment</span>
-              </Link>
-              <Link to="/about" className="btn-secondary">
-                About KASPIT
-              </Link>
+              <MetalCTA to="/contact" label="Request Risk Assessment" />
+              <MetalCTA to="/about" label="About KASPIT" secondary />
             </div>
           </div>
         </div>
@@ -225,9 +222,7 @@ export default function Home() {
                 investigations, need sophisticated security architecture, global emergencies, or elite training,
                 KASPIT Security is the trusted partner that discerning executives choose.
               </p>
-              <Link to="/about" className="about-reveal btn-secondary">
-                About Us
-              </Link>
+              <MetalCTA to="/about" label="About Us" secondary className="about-reveal" />
             </div>
             <div className="about-reveal" style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
               <img
@@ -289,8 +284,8 @@ export default function Home() {
             All inquiries are handled with the highest level of discretion and personal attention.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-            <Link to="/contact" className="btn-primary"><span>Request a Confidential Risk Assessment</span></Link>
-            <Link to="/contact" className="btn-secondary">Book a Private Consultation</Link>
+            <MetalCTA to="/contact" label="Request a Confidential Risk Assessment" />
+            <MetalCTA to="/contact" label="Book a Private Consultation" secondary />
           </div>
         </div>
       </section>

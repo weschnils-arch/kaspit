@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MetalCTA from '../components/MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -63,7 +64,7 @@ export default function Advantage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center', padding: 'clamp(3rem, 5vw, 4rem)', background: 'var(--surface)', border: '1px solid var(--border)' }}>
           <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Experience the difference</h2>
-          <Link to="/contact" className="btn-primary"><span>Request Your Confidential Assessment</span></Link>
+          <MetalCTA to="/contact" label="Request Your Confidential Assessment" />
         </div>
       </section>
     </>

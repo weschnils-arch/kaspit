@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import MetalCTA from '../components/ui/MetalCTA'
 
 const services = [
   {
@@ -121,12 +122,17 @@ export default function Services() {
           <p className="body-lg mb-10">
             Request your confidential risk assessment today. Every conversation begins with discretion.
           </p>
-          <Link to="/contact" className="btn-primary">
-            Request a Risk Assessment
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
+          <MetalCTA
+            to="/contact"
+            label="Request a Risk Assessment"
+            width={280}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
         </div>
       </section>
     </>

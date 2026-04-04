@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import MetalCTA from '../components/ui/MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -151,16 +152,23 @@ export default function Home() {
               Bespoke solutions for executives, corporations and high-net-worth individuals.
             </p>
 
-            <div className="hero-cta flex flex-wrap gap-4" style={{ opacity: 0 }}>
-              <Link to="/contact" className="btn-primary">
-                Request a Risk Assessment
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-              <Link to="/about" className="btn-outline">
-                Meet Maxim Gutman
-              </Link>
+            <div className="hero-cta flex flex-wrap gap-4 items-center" style={{ opacity: 0 }}>
+              <MetalCTA
+                to="/contact"
+                label="Request a Risk Assessment"
+                width={280}
+                height={52}
+                icon={
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                }
+              />
+              <MetalCTA
+                to="/about"
+                label="Meet Maxim Gutman"
+                variant="outline"
+              />
             </div>
           </div>
 
@@ -243,12 +251,16 @@ export default function Home() {
               global emergency response -- KASPIT Security is the trusted partner that
               discerning executives choose.
             </p>
-            <Link to="/about" className="btn-outline">
-              Learn More
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
+            <MetalCTA
+              to="/about"
+              label="Learn More"
+              variant="outline"
+              icon={
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+            />
           </div>
 
           <div data-reveal className="relative">
@@ -287,16 +299,23 @@ export default function Home() {
             Every conversation begins with discretion. Request a confidential risk assessment
             or book a private consultation with Maxim.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-primary">
-              Request a Risk Assessment
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
-            <Link to="/contact" className="btn-outline">
-              Book a Private Consultation
-            </Link>
+          <div className="flex flex-wrap justify-center gap-4 items-center">
+            <MetalCTA
+              to="/contact"
+              label="Request a Risk Assessment"
+              width={280}
+              height={52}
+              icon={
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+            />
+            <MetalCTA
+              to="/contact"
+              label="Book a Private Consultation"
+              variant="outline"
+            />
           </div>
         </div>
       </section>

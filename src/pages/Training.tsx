@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import MetalCTA from '../components/ui/MetalCTA'
 
 const programs = [
   {
@@ -131,12 +132,17 @@ export default function Training() {
           <p className="body-lg mb-10">
             Every program is customised to your exact risk profile and delivered by elite instructors.
           </p>
-          <Link to="/contact" className="btn-primary">
-            Request a Training Consultation
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
+          <MetalCTA
+            to="/contact"
+            label="Request a Training Consultation"
+            width={300}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
         </div>
       </section>
     </>

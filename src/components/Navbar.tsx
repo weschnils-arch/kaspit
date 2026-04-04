@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import clsx from 'clsx'
+import { useTheme } from '../context/ThemeContext'
+import LiquidMetalButton from './ui/LiquidMetalButton'
 
 const navLinks = [
   { label: 'Services', href: '/services' },
@@ -14,6 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -47,9 +50,9 @@ export default function Navbar() {
         <div className="section-padding flex items-center justify-between h-20 lg:h-24">
           <Link to="/" className="flex items-center gap-3 relative z-50">
             <img
-              src={`${import.meta.env.BASE_URL}images/kaspit-logo-white.webp`}
-              alt="KASPIT Security"
-              className="h-8 lg:h-10 w-auto brightness-0 invert"
+              src={`${import.meta.env.BASE_URL}images/kaspit-logo-full.webp`}
+              alt="KASPIT Security Solutions"
+              className="h-7 lg:h-9 w-auto"
             />
           </Link>
 
@@ -69,9 +72,44 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn-primary text-xs py-3 px-6">
-              Risk Assessment
-            </Link>
+
+            {/* Risk Assessment CTA + Theme Toggle */}
+            <div className="flex items-center gap-3 ml-4">
+              {theme === 'silver' ? (
+                <Link to="/contact">
+                  <LiquidMetalButton
+                    label="Risk Assessment"
+                  />
+                </Link>
+              ) : (
+                <Link to="/contact" className="btn-primary text-xs py-3 px-6">
+                  Risk Assessment
+                </Link>
+              )}
+
+              {/* Toggle icon */}
+              <button
+                onClick={toggle}
+                className="theme-toggle"
+                aria-label={`Switch to ${theme === 'gold' ? 'silver' : 'gold'} theme`}
+                title={`Switch to ${theme === 'gold' ? 'silver' : 'gold'}`}
+              >
+                {theme === 'gold' ? (
+                  /* Diamond/gem icon for gold -> silver */
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 3h12l4 6-10 13L2 9z" />
+                    <path d="M2 9h20" />
+                    <path d="M10 3l-4 6 6 13 6-13-4-6" />
+                  </svg>
+                ) : (
+                  /* Sun/gold icon for silver -> gold */
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Hamburger */}
@@ -120,13 +158,37 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className="btn-primary mt-4"
-            style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}
-          >
-            Request Assessment
-          </Link>
+
+          <div className="flex items-center gap-4 mt-4" style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}>
+            {theme === 'silver' ? (
+              <Link to="/contact">
+                <LiquidMetalButton label="Request Assessment" />
+              </Link>
+            ) : (
+              <Link to="/contact" className="btn-primary">
+                Request Assessment
+              </Link>
+            )}
+
+            <button
+              onClick={toggle}
+              className="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              {theme === 'gold' ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 3h12l4 6-10 13L2 9z" />
+                  <path d="M2 9h20" />
+                  <path d="M10 3l-4 6 6 13 6-13-4-6" />
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </>

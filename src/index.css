@@ -182,6 +182,67 @@
   }
 }
 
+/* Silver theme overrides — premium chrome metallic */
+html[data-theme="silver"] {
+  --color-primary: #B0BEC5;
+  --color-primary-light: #CFD8DC;
+  --color-primary-dark: #90A4AE;
+}
+
+html[data-theme="silver"] ::selection {
+  background-color: rgba(176, 190, 197, 0.3);
+}
+
+html[data-theme="silver"] .divider {
+  background: linear-gradient(90deg, transparent, rgba(176, 190, 197, 0.15), transparent);
+}
+
+html[data-theme="silver"] .btn-primary {
+  background: linear-gradient(135deg, #B0BEC5, #CFD8DC, #90A4AE);
+  color: #0A0A0A;
+}
+
+html[data-theme="silver"] .btn-primary:hover {
+  background: linear-gradient(135deg, #CFD8DC, #ECEFF1, #B0BEC5);
+  box-shadow: 0 8px 30px rgba(176, 190, 197, 0.25);
+}
+
+html[data-theme="silver"] .btn-outline {
+  color: var(--color-primary);
+  border-color: rgba(176, 190, 197, 0.3);
+}
+
+html[data-theme="silver"] .btn-outline:hover {
+  border-color: var(--color-primary);
+  background: rgba(176, 190, 197, 0.05);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--color-text-muted);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(201, 169, 110, 0.05);
+}
+
+html[data-theme="silver"] .theme-toggle:hover {
+  background: rgba(158, 170, 184, 0.05);
+}
+
 /* Lenis */
 html.lenis, html.lenis body {
   height: auto;

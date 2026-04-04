@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import MetalCTA from '../components/ui/MetalCTA'
 
 const advantages = [
   {
@@ -116,12 +117,17 @@ export default function Advantage() {
             Our clients choose KASPIT Security because they expect -- and receive -- far more than security.
             They receive a trusted partner who thinks, plans and acts at the highest level.
           </p>
-          <Link to="/contact" className="btn-primary">
-            Request Your Risk Assessment
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
+          <MetalCTA
+            to="/contact"
+            label="Request Your Risk Assessment"
+            width={280}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
         </div>
       </section>
     </>

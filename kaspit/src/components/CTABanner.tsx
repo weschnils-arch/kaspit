@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MetalCTA from './MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,13 +37,9 @@ export default function CTABanner({ title, primaryText, primaryHref, secondaryTe
       }}>
         <h2 className="heading-md" style={{ marginBottom: '2rem' }}>{title}</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-          <Link to={primaryHref} className="btn-primary">
-            <span>{primaryText}</span>
-          </Link>
+          <MetalCTA to={primaryHref} label={primaryText} />
           {secondaryText && secondaryHref && (
-            <Link to={secondaryHref} className="btn-secondary">
-              {secondaryText}
-            </Link>
+            <MetalCTA to={secondaryHref} label={secondaryText} secondary />
           )}
         </div>
       </div>

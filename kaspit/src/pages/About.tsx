@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MetalCTA from '../components/MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -111,7 +112,7 @@ export default function About() {
           padding: 'clamp(3rem, 5vw, 4rem)', background: 'var(--surface)', border: '1px solid var(--border)',
         }}>
           <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Meet Maxim personally</h2>
-          <Link to="/contact" className="btn-primary"><span>Book a Private Consultation</span></Link>
+          <MetalCTA to="/contact" label="Book a Private Consultation" />
         </div>
       </section>
 

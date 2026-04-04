@@ -1,27 +1,29 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MetalCTA from '../components/MetalCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
 interface ServicePageProps {
   label: string
-  title: string
-  subtitle: string
-  intro: string[]
-  gains: string[]
-  approach: { title: string; desc: string }[]
-  ctaTitle: string
-  ctaPrimary: string
+  headline: React.ReactNode
+  subheadline: string
+  intro: React.ReactNode
+  benefits: string[]
+  approach: { step: string; desc: string }[]
+  ctaText: string
+  ctaBtn: string
   ctaSecondary?: string
   scopeTitle?: string
   scopeItems?: string[]
+  extra?: React.ReactNode
 }
 
 export default function ServicePage({
-  label, title, subtitle, intro, gains, approach,
-  ctaTitle, ctaPrimary, ctaSecondary, scopeTitle, scopeItems,
+  label, headline, subheadline, intro, benefits, approach,
+  ctaText, ctaBtn, ctaSecondary, scopeTitle, scopeItems, extra,
 }: ServicePageProps) {
   const heroRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLElement>(null)
@@ -56,17 +58,15 @@ export default function ServicePage({
       <section ref={heroRef} style={{ padding: 'clamp(8rem, 18vh, 12rem) 0 clamp(4rem, 8vh, 6rem)' }}>
         <div className="container">
           <div className="reveal section-label">{label}</div>
-          <h1 className="reveal heading-xl" style={{ maxWidth: '900px', marginBottom: '1.5rem' }}>{title}</h1>
-          <p className="reveal" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', maxWidth: '600px', lineHeight: 1.7 }}>{subtitle}</p>
+          <h1 className="reveal heading-xl" style={{ maxWidth: '900px', marginBottom: '1.5rem' }}>{headline}</h1>
+          <p className="reveal" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', maxWidth: '600px', lineHeight: 1.7 }}>{subheadline}</p>
         </div>
       </section>
 
       {/* Intro */}
       <section ref={contentRef} style={{ padding: '0 2rem clamp(4rem, 8vw, 6rem)' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          {intro.map((p, i) => (
-            <p key={i} className="reveal" style={{ fontSize: '1.0625rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>{p}</p>
-          ))}
+        <div className="container reveal" style={{ maxWidth: '800px', fontSize: '1.0625rem', lineHeight: 1.8 }}>
+          {intro}
         </div>
       </section>
 
@@ -76,7 +76,7 @@ export default function ServicePage({
           <div className="gain-grid" style={{ display: 'grid', gridTemplateColumns: scopeItems ? '1fr 1fr' : '1fr', gap: '4rem' }}>
             <div>
               <h2 className="heading-md reveal" style={{ marginBottom: '2rem' }}>What You Gain</h2>
-              {gains.map((g, i) => (
+              {benefits.map((g, i) => (
                 <div key={i} className="gain" style={{
                   display: 'flex', gap: '1rem', alignItems: 'flex-start',
                   padding: '1rem 0', borderBottom: '1px solid var(--border)',
@@ -101,6 +101,13 @@ export default function ServicePage({
         </div>
       </section>
 
+      {/* Extra (optional slot) */}
+      {extra && (
+        <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem', borderTop: '1px solid var(--border)' }}>
+          <div className="container">{extra}</div>
+        </section>
+      )}
+
       {/* Approach */}
       <section ref={approachRef} style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem', borderTop: '1px solid var(--border)' }}>
         <div className="container">
@@ -111,7 +118,7 @@ export default function ServicePage({
                 <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--blue-light)', opacity: 0.3, lineHeight: 1 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 style={{ fontSize: '1.0625rem', fontWeight: 600, margin: '1rem 0 0.5rem' }}>{s.title}</h3>
+                <h3 style={{ fontSize: '1.0625rem', fontWeight: 600, margin: '1rem 0 0.5rem' }}>{s.step}</h3>
                 <p style={{ fontSize: '0.875rem', lineHeight: 1.7 }}>{s.desc}</p>
               </div>
             ))}
@@ -125,10 +132,10 @@ export default function ServicePage({
           maxWidth: '800px', margin: '0 auto', textAlign: 'center',
           padding: 'clamp(3rem, 5vw, 4rem)', background: 'var(--surface)', border: '1px solid var(--border)',
         }}>
-          <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>{ctaTitle}</h2>
+          <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>{ctaText}</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-            <Link to="/contact" className="btn-primary"><span>{ctaPrimary}</span></Link>
-            {ctaSecondary && <Link to="/contact" className="btn-secondary">{ctaSecondary}</Link>}
+            <MetalCTA to="/contact" label={ctaBtn} />
+            {ctaSecondary && <MetalCTA to="/contact" label={ctaSecondary} secondary />}
           </div>
         </div>
       </section>

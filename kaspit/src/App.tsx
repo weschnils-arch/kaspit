@@ -5,6 +5,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import ParticleNetwork from './components/ParticleNetwork'
 import CustomCursor from './components/CustomCursor'
+import { ThemeProvider, useTheme } from './context/ThemeContext'
 import Home from './pages/Home'
 import About from './pages/About'
 import Advantage from './pages/Advantage'
@@ -25,7 +26,17 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+function AccentToggle() {
+  const { accent, toggle } = useTheme()
+  return (
+    <button className="accent-toggle" onClick={toggle} aria-label="Toggle accent color">
+      <span className={`accent-toggle-dot ${accent}`} />
+      {accent === 'gold' ? 'Gold' : 'Silver'}
+    </button>
+  )
+}
+
+function AppInner() {
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
     function raf(time: number) {
@@ -63,6 +74,15 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <AccentToggle />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppInner />
+    </ThemeProvider>
   )
 }

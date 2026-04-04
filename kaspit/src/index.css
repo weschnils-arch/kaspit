@@ -17,6 +17,12 @@
     --gold-dim: rgba(200, 169, 110, 0.2);
   }
 
+  /* Silver accent mode */
+  [data-accent="silver"] {
+    --gold: #A8B4C0;
+    --gold-dim: rgba(168, 180, 192, 0.2);
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -230,4 +236,116 @@
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ─── Silver accent mode ─────────────────────────────────────── */
+[data-accent="silver"] {
+  --gold: #A8B4C8;
+  --gold-dim: rgba(168, 180, 200, 0.18);
+}
+
+/* Metallic silver CTA buttons — sharp 90° corners, no rounding */
+[data-accent="silver"] .btn-primary,
+[data-accent="silver"] .btn-secondary {
+  border-radius: 0 !important;
+  border: none !important;
+  color: #0a0d1a !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+[data-accent="silver"] .btn-primary,
+[data-accent="silver"] .btn-secondary {
+  background: linear-gradient(
+    175deg,
+    #e8eaed 0%,
+    #d0d4da 12%,
+    #b8bec8 28%,
+    #cdd1d8 42%,
+    #a4aab6 55%,
+    #bdc3cc 68%,
+    #d8dce2 82%,
+    #eaecef 92%,
+    #f2f4f6 100%
+  ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    inset 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset -1px 0 0 rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-accent="silver"] .btn-primary::before,
+[data-accent="silver"] .btn-secondary::before {
+  display: none !important;
+}
+
+[data-accent="silver"] .btn-primary:hover,
+[data-accent="silver"] .btn-secondary:hover {
+  filter: brightness(1.08) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 6px 24px rgba(0, 0, 0, 0.55),
+    0 1px 4px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-accent="silver"] .btn-primary span,
+[data-accent="silver"] .btn-secondary span {
+  color: #0a0d1a !important;
+}
+
+/* Silver accent on text-gold class */
+[data-accent="silver"] .text-gold {
+  color: var(--gold) !important;
+}
+
+/* Accent toggle pill */
+.accent-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 13, 26, 0.85);
+  border: 1px solid rgba(75, 110, 200, 0.25);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: border-color 0.25s ease, color 0.25s ease;
+  user-select: none;
+}
+
+.accent-toggle:hover {
+  border-color: rgba(75, 110, 200, 0.5);
+  color: var(--text);
+}
+
+.accent-toggle-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accent-toggle-dot.gold {
+  background: #C8A96E;
+  box-shadow: 0 0 6px rgba(200, 169, 110, 0.6);
+}
+
+.accent-toggle-dot.silver {
+  background: linear-gradient(135deg, #e8eaed, #a4aab6);
+  box-shadow: 0 0 6px rgba(168, 180, 200, 0.6);
 }

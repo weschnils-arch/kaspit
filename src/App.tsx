@@ -1,8 +1,10 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ParticleNetwork from './components/ParticleNetwork'
+import LoadingScreen from './components/LoadingScreen'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -20,8 +22,12 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const [loaded, setLoaded] = useState(false)
+  const handleLoadComplete = useCallback(() => setLoaded(true), [])
+
   return (
-    <>
+    <ThemeProvider>
+      {!loaded && <LoadingScreen onComplete={handleLoadComplete} />}
       <ParticleNetwork />
       <Navbar />
       <ScrollToTop />
@@ -37,6 +43,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }

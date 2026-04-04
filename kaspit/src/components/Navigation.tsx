@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import MetalCTA from './MetalCTA'
 
 const navLinks = [
   { label: 'Services', href: '/security-management' },
@@ -77,9 +78,7 @@ export default function Navigation() {
 
           {/* CTA + Hamburger */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <Link to="/contact" className="btn-primary" style={{ padding: '0.625rem 1.25rem', fontSize: '0.75rem' }}>
-              <span>Contact</span>
-            </Link>
+            <MetalCTA to="/contact" label="Contact" style={{ padding: '0.625rem 1.25rem', fontSize: '0.75rem' }} />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="mobile-menu-btn"
@@ -135,9 +134,7 @@ export default function Navigation() {
             {link.label}
           </Link>
         ))}
-        <Link to="/contact" className="btn-primary" style={{ marginTop: '1rem' }}>
-          <span>Start a Confidential Conversation</span>
-        </Link>
+        <MetalCTA to="/contact" label="Start a Confidential Conversation" style={{ marginTop: '1rem' }} />
       </div>
 
       <style>{`
