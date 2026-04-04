@@ -1,0 +1,130 @@
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import clsx from 'clsx'
+
+const navLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Advantage', href: '/advantage' },
+  { label: 'About', href: '/about' },
+  { label: 'Training', href: '/training' },
+  { label: 'Contact', href: '/contact' },
+]
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  return (
+    <>
+      <nav
+        className={clsx(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          scrolled
+            ? 'bg-dark/80 backdrop-blur-xl border-b border-white/[0.04]'
+            : 'bg-transparent'
+        )}
+      >
+        <div className="section-padding flex items-center justify-between h-20 lg:h-24">
+          <Link to="/" className="flex items-center gap-3 relative z-50">
+            <img
+              src={`${import.meta.env.BASE_URL}images/kaspit-logo-white.webp`}
+              alt="KASPIT Security"
+              className="h-8 lg:h-10 w-auto brightness-0 invert"
+            />
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={clsx(
+                  'text-[0.8125rem] font-medium tracking-[0.08em] uppercase transition-colors duration-300',
+                  location.pathname === link.href
+                    ? 'text-primary'
+                    : 'text-text-muted hover:text-text'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link to="/contact" className="btn-primary text-xs py-3 px-6">
+              Risk Assessment
+            </Link>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            aria-label="Toggle menu"
+          >
+            <span
+              className={clsx(
+                'w-6 h-[1.5px] bg-text transition-all duration-300',
+                menuOpen && 'rotate-45 translate-y-[4.5px]'
+              )}
+            />
+            <span
+              className={clsx(
+                'w-6 h-[1.5px] bg-text transition-all duration-300',
+                menuOpen && '-rotate-45 -translate-y-[4.5px]'
+              )}
+            />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={clsx(
+          'fixed inset-0 z-40 bg-dark/95 backdrop-blur-2xl transition-all duration-500 lg:hidden flex flex-col justify-center items-center',
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        )}
+      >
+        <div className="flex flex-col items-center gap-8">
+          {navLinks.map((link, i) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className={clsx(
+                'text-2xl font-light tracking-wide transition-all duration-500',
+                menuOpen
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4',
+                location.pathname === link.href ? 'text-primary' : 'text-text'
+              )}
+              style={{ transitionDelay: menuOpen ? `${i * 80}ms` : '0ms' }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            to="/contact"
+            className="btn-primary mt-4"
+            style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}
+          >
+            Request Assessment
+          </Link>
+        </div>
+      </div>
+    </>
+  )
+}
