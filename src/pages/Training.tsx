@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import MetalCTA from '../components/ui/MetalCTA'
 
