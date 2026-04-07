@@ -1,7 +1,9 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import Contact from '../components/Contact'
 
 export default function ContactPage() {
+  usePageTitle('Contact · Confidential Conversation')
   const heroRef = useScrollReveal<HTMLDivElement>()
 
   return (

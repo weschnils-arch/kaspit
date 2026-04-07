@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import MetalCTA from '../components/ui/MetalCTA'
 
 const services = [
@@ -48,6 +49,7 @@ const services = [
 ]
 
 export default function Services() {
+  usePageTitle('Strategic Security Services')
   const heroRef = useScrollReveal<HTMLDivElement>()
   const gridRef = useScrollReveal<HTMLDivElement>()
   const ctaRef = useScrollReveal<HTMLDivElement>()

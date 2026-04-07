@@ -37,7 +37,7 @@ export default function Navbar() {
     <>
       <nav
         className={clsx(
-          'fixed top-0 left-0 right-0 z-50',
+          'fixed top-0 left-0 right-0 z-[100]',
           scrolled ? 'border-b border-white/[0.04]' : 'border-b border-transparent'
         )}
         style={{
@@ -112,32 +112,59 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-            aria-label="Toggle menu"
-          >
-            <span
+          {/* Mobile right cluster: theme toggle (when open) + hamburger */}
+          <div className="lg:hidden flex items-center gap-3 relative z-50">
+            <button
+              onClick={toggle}
+              aria-label={`Switch to ${theme === 'gold' ? 'silver' : 'gold'} theme`}
+              title={`Switch to ${theme === 'gold' ? 'silver' : 'gold'}`}
               className={clsx(
-                'w-6 h-[1.5px] bg-text transition-all duration-300',
-                menuOpen && 'rotate-45 translate-y-[4.5px]'
+                'theme-toggle transition-all duration-300',
+                menuOpen
+                  ? 'opacity-100 scale-100 pointer-events-auto'
+                  : 'opacity-0 scale-90 pointer-events-none'
               )}
-            />
-            <span
-              className={clsx(
-                'w-6 h-[1.5px] bg-text transition-all duration-300',
-                menuOpen && '-rotate-45 -translate-y-[4.5px]'
+            >
+              {theme === 'gold' ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 3h12l4 6-10 13L2 9z" />
+                  <path d="M2 9h20" />
+                  <path d="M10 3l-4 6 6 13 6-13-4-6" />
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
               )}
-            />
-          </button>
+            </button>
+
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+              aria-label="Toggle menu"
+            >
+              <span
+                className={clsx(
+                  'w-6 h-[1.5px] bg-text transition-all duration-300',
+                  menuOpen && 'rotate-45 translate-y-[4.5px]'
+                )}
+              />
+              <span
+                className={clsx(
+                  'w-6 h-[1.5px] bg-text transition-all duration-300',
+                  menuOpen && '-rotate-45 -translate-y-[4.5px]'
+                )}
+              />
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
         className={clsx(
-          'fixed inset-0 z-40 bg-dark/95 backdrop-blur-2xl transition-all duration-500 lg:hidden flex flex-col justify-center items-center',
+          'fixed inset-0 z-[90] bg-dark/95 backdrop-blur-2xl transition-all duration-500 lg:hidden flex flex-col justify-center items-center',
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         )}
       >
@@ -159,7 +186,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div className="flex items-center gap-4 mt-4" style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}>
+          <div className="flex items-center mt-4" style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}>
             {theme === 'silver' ? (
               <Link to="/contact">
                 <LiquidMetalButton label="Request Assessment" />
@@ -169,25 +196,6 @@ export default function Navbar() {
                 Request Assessment
               </Link>
             )}
-
-            <button
-              onClick={toggle}
-              className="theme-toggle"
-              aria-label="Toggle theme"
-            >
-              {theme === 'gold' ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 3h12l4 6-10 13L2 9z" />
-                  <path d="M2 9h20" />
-                  <path d="M10 3l-4 6 6 13 6-13-4-6" />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
-              )}
-            </button>
           </div>
         </div>
       </div>

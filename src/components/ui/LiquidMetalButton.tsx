@@ -91,17 +91,10 @@ export default function LiquidMetalButton({
       <button
         ref={buttonRef}
         type={type}
-        className={`${className}`}
+        className={`relative bg-transparent border-none cursor-pointer outline-none p-0 overflow-hidden w-full sm:w-auto ${className}`}
         style={{
-          position: 'relative',
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          outline: 'none',
-          padding: 0,
           transform: isPressed ? 'scale(0.98)' : 'scale(1)',
           transition: 'transform 0.15s ease',
-          overflow: 'hidden',
         }}
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
@@ -116,21 +109,9 @@ export default function LiquidMetalButton({
         <div className="lm-fill" />
         {/* Label on top */}
         <span
+          className="relative z-[2] flex items-center justify-center w-full px-5 sm:px-12 py-[14px] text-[0.65rem] sm:text-[0.8125rem] font-semibold tracking-[0.05em] uppercase whitespace-nowrap pointer-events-none transition-colors duration-300"
           style={{
-            position: 'relative',
-            zIndex: 2,
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '14px 48px',
-            fontSize: '0.875rem',
             color: isHovered ? '#d0d0d0' : '#909090',
-            fontWeight: 600,
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-            whiteSpace: 'nowrap',
-            pointerEvents: 'none',
-            transition: 'color 0.3s ease',
           }}
         >
           {label}

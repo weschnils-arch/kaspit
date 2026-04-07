@@ -1,7 +1,9 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import MetalCTA from '../components/ui/MetalCTA'
 
 export default function About() {
+  usePageTitle('About · Maxim Gutman & KASPIT')
   const heroRef = useScrollReveal<HTMLDivElement>()
   const founderRef = useScrollReveal<HTMLDivElement>()
   const storyRef = useScrollReveal<HTMLDivElement>()
@@ -29,9 +31,9 @@ export default function About() {
 
       {/* Founder */}
       <section ref={founderRef} className="section-padding py-24 lg:py-36">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-20 items-start">
-          <div className="lg:col-span-2" data-reveal>
-            <div className="aspect-[3/4] rounded-sm overflow-hidden relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div className="lg:col-span-4" data-reveal>
+            <div className="aspect-[3/4] max-w-[340px] rounded-sm overflow-hidden relative">
               <img
                 src={`${import.meta.env.BASE_URL}images/maxim-gutman.webp`}
                 alt="Maxim Gutman"
@@ -42,7 +44,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="lg:col-span-3" data-reveal>
+          <div className="lg:col-span-8" data-reveal>
             <span className="label-text">Founder & Managing Director</span>
             <h2 className="heading-lg mt-4 mb-8">Maxim Gutman</h2>
             <div className="space-y-6">

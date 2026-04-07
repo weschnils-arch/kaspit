@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import MetalCTA from '../components/ui/MetalCTA'
 
 const advantages = [
@@ -62,7 +63,9 @@ const advantages = [
 ]
 
 export default function Advantage() {
+  usePageTitle('The KASPIT Advantage')
   const heroRef = useScrollReveal<HTMLDivElement>()
+  const introRef = useScrollReveal<HTMLDivElement>()
   const gridRef = useScrollReveal<HTMLDivElement>()
   const ctaRef = useScrollReveal<HTMLDivElement>()
 
@@ -86,6 +89,32 @@ export default function Advantage() {
       </section>
 
       <div className="section-padding"><div className="divider" /></div>
+
+      {/* Intro paragraph */}
+      <section ref={introRef} className="section-padding py-24 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+          <div data-reveal>
+            <span className="label-text">The Difference</span>
+            <h2 className="heading-lg mt-4">
+              Standard Guarding<br /><span className="text-primary">Reimagined</span>
+            </h2>
+          </div>
+          <div data-reveal className="space-y-6 body-lg">
+            <p>
+              KASPIT Security delivers a real competitive advantage by deploying the latest
+              cutting-edge technologies, high-level analytical tools, and the highest industry
+              best practices.
+            </p>
+            <p>
+              While others offer standard guarding services, we deliver true strategic resilience,
+              intelligence-led protection, expert security consulting, and independent audits. Our
+              clients choose KASPIT Security because they expect — and receive — far more than
+              security. They receive a trusted partner who thinks, plans and acts at the highest
+              level, turning potential weaknesses into proven strengths.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Grid */}
       <section ref={gridRef} className="section-padding py-24 lg:py-36">
@@ -118,8 +147,8 @@ export default function Advantage() {
           </p>
           <MetalCTA
             to="/contact"
-            label="Request Your Risk Assessment"
-            width={280}
+            label="Request Your Confidential Risk Assessment"
+            width={320}
             height={52}
             icon={
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">

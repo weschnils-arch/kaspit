@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import MetalCTA from '../components/ui/MetalCTA'
 
 const programs = [
@@ -42,10 +43,32 @@ const gains = [
   'Official certificates and scheduled refresher training',
 ]
 
+const approach = [
+  {
+    title: 'Confidential Risk & Skills Assessment',
+    desc: 'We begin with a private review of your operational profile, threats faced, and existing capability gaps.',
+  },
+  {
+    title: 'Customised Program Design',
+    desc: 'Fully bespoke curriculum and scenario planning built around your exact destinations, threat levels and objectives.',
+  },
+  {
+    title: 'Intensive Hands-On Training',
+    desc: 'Delivered by elite, experienced instructors in small private groups or one-to-one format with absolute discretion.',
+  },
+  {
+    title: 'Evaluation & Refresher Plan',
+    desc: 'Post-training feedback, performance evaluation, and a scheduled refresher plan to keep skills sharp over time.',
+  },
+]
+
 export default function Training() {
+  usePageTitle('Elite Training & Capacity Building')
   const heroRef = useScrollReveal<HTMLDivElement>()
+  const introRef = useScrollReveal<HTMLDivElement>()
   const programsRef = useScrollReveal<HTMLDivElement>()
   const gainsRef = useScrollReveal<HTMLDivElement>()
+  const approachRef = useScrollReveal<HTMLDivElement>()
   const ctaRef = useScrollReveal<HTMLDivElement>()
 
   return (
@@ -63,11 +86,40 @@ export default function Training() {
           <p data-reveal className="body-lg max-w-2xl">
             Hands-on, intelligence-informed programs that equip executives, teams and
             high-net-worth individuals with practical skills for real-world threats.
+            Delivered to the same elite standards as our operational services.
           </p>
         </div>
       </section>
 
       <div className="section-padding"><div className="divider" /></div>
+
+      {/* Introduction */}
+      <section ref={introRef} className="section-padding py-24 lg:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+          <div data-reveal>
+            <span className="label-text">Introduction</span>
+            <h2 className="heading-lg mt-4">
+              From Knowledge to<br /><span className="text-primary">Muscle Memory</span>
+            </h2>
+          </div>
+          <div data-reveal className="space-y-6 body-lg">
+            <p>
+              Knowledge alone is not enough — real resilience comes from instinctive skills
+              developed under realistic pressure. KASPIT Security offers bespoke training
+              programs designed for corporations, executives and security professionals who
+              refuse to settle for generic courses. Every program is intelligence-informed,
+              scenario-based and tailored to your exact risk profile, turning theory into
+              muscle memory and confidence.
+            </p>
+            <p>
+              Conducted in small private groups or one-to-one format with absolute discretion
+              and supported by the international infrastructure of the KASPIT Group, our training
+              bridges the gap between awareness and capability across our branches in Austria,
+              Germany and Israel.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Programs */}
       <section ref={programsRef} className="section-padding py-24 lg:py-36">
@@ -122,8 +174,33 @@ export default function Training() {
         </div>
       </section>
 
+      {/* Our Approach */}
+      <section ref={approachRef} className="section-padding py-24 lg:py-36">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16" data-reveal>
+            <span className="label-text">Methodology</span>
+            <h2 className="heading-lg mt-4">Our <span className="text-primary">Approach</span></h2>
+          </div>
+          <div className="space-y-6">
+            {approach.map((step, i) => (
+              <div
+                key={step.title}
+                data-reveal
+                className="group glass-card rounded-sm p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 transition-all duration-500 hover:border-primary/30 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(176,190,197,0.06)]"
+              >
+                <span className="text-xs text-text-dim font-mono tracking-wider group-hover:text-primary transition-colors duration-500">0{i + 1}</span>
+                <div>
+                  <h3 className="heading-sm mb-3 group-hover:text-primary transition-colors duration-500">{step.title}</h3>
+                  <p className="body-md">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section ref={ctaRef} className="section-padding py-24 lg:py-36 text-center">
+      <section ref={ctaRef} className="section-padding py-24 lg:py-36 bg-dark-900 text-center">
         <div data-reveal className="max-w-2xl mx-auto">
           <h2 className="heading-lg mb-6">
             Build Real <span className="text-primary">Resilience</span> Today

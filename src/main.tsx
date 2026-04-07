@@ -12,6 +12,9 @@ const lenis = new Lenis({
   touchMultiplier: 2,
 })
 
+// Expose for route-change scroll resets (ScrollToTop in App.tsx)
+;(window as unknown as { __lenis?: Lenis }).__lenis = lenis
+
 function raf(time: number) {
   lenis.raf(time)
   requestAnimationFrame(raf)

@@ -9,12 +9,12 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: 'gold',
+  theme: 'silver',
   toggle: () => {},
 })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('gold')
+  const [theme, setTheme] = useState<Theme>('silver')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme === 'silver' ? 'silver' : '')

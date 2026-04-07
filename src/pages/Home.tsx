@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
 import MetalCTA from '../components/ui/MetalCTA'
+import HeroNetwork from '../components/HeroNetwork'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -53,6 +55,7 @@ const stats = [
 ]
 
 export default function Home() {
+  usePageTitle('Intelligence-Led Security Management')
   const heroRef = useRef<HTMLDivElement>(null)
   const servicesRef = useScrollReveal<HTMLDivElement>()
   const aboutRef = useScrollReveal<HTMLDivElement>()
@@ -130,6 +133,9 @@ export default function Home() {
           />
         </div>
 
+        {/* Constellation network — right side, mouse-reactive */}
+        <HeroNetwork />
+
         <div className="section-padding relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32 w-full">
           <div className="max-w-5xl">
             <div className="hero-label label-text mb-8" style={{ opacity: 0 }}>
@@ -152,7 +158,7 @@ export default function Home() {
               Bespoke solutions for executives, corporations and high-net-worth individuals.
             </p>
 
-            <div className="hero-cta flex flex-wrap gap-4 items-center" style={{ opacity: 0 }}>
+            <div className="hero-cta flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:items-stretch" style={{ opacity: 0 }}>
               <MetalCTA
                 to="/contact"
                 label="Request a Risk Assessment"
@@ -168,6 +174,7 @@ export default function Home() {
                 to="/about"
                 label="Meet Maxim Gutman"
                 variant="outline"
+                className="!py-[14px]"
               />
             </div>
           </div>
@@ -242,14 +249,17 @@ export default function Home() {
             </h2>
             <p className="body-lg mb-6">
               KASPIT Security is the premium boutique arm of the international KASPIT Group.
-              With branches across Europe and the Middle East, we deliver intelligence-led,
-              fully bespoke solutions that protect your most valuable assets.
+              With branches across Europe (Austria and Germany) and the Middle East (Israel),
+              we deliver intelligence-led, fully bespoke solutions that protect your most
+              valuable assets — your people, your operations and your peace of mind.
             </p>
             <p className="body-lg mb-10">
-              Every engagement is tailored to your exact risk environment. Whether you face
-              complex investigations, need sophisticated security architecture, or require
-              global emergency response -- KASPIT Security is the trusted partner that
-              discerning executives choose.
+              Every engagement is tailored to your exact risk environment. This includes
+              strategic security consulting and independent audits that identify vulnerabilities,
+              strengthen resilience, and ensure compliance at the highest level. Whether you
+              face complex investigations, sophisticated security architecture, global
+              emergencies, or elite training, KASPIT Security is the trusted partner that
+              discerning executives and corporations choose to stay ahead.
             </p>
             <MetalCTA
               to="/about"
@@ -263,7 +273,7 @@ export default function Home() {
             />
           </div>
 
-          <div data-reveal className="relative">
+          <div data-reveal className="relative max-w-[420px] lg:ml-auto">
             <div className="aspect-[3/4] rounded-sm overflow-hidden relative">
               <img
                 src={`${import.meta.env.BASE_URL}images/maxim-gutman.webp`}
@@ -299,11 +309,11 @@ export default function Home() {
             Every conversation begins with discretion. Request a confidential risk assessment
             or book a private consultation with Maxim.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 items-center">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-4 sm:items-stretch">
             <MetalCTA
               to="/contact"
-              label="Request a Risk Assessment"
-              width={280}
+              label="Request a Confidential Risk Assessment"
+              width={320}
               height={52}
               icon={
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
@@ -313,10 +323,14 @@ export default function Home() {
             />
             <MetalCTA
               to="/contact"
-              label="Book a Private Consultation"
+              label="Book a Private Consultation with Maxim"
               variant="outline"
+              className="!py-[14px]"
             />
           </div>
+          <p className="mt-6 text-xs text-text-dim tracking-wider uppercase">
+            Free &middot; No obligation &middot; Absolute confidentiality
+          </p>
         </div>
       </section>
     </>
