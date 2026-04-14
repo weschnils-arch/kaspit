@@ -15,8 +15,8 @@ const services = [
   },
   {
     num: '02',
-    title: 'Strategic Security Management',
-    desc: '360\u00b0 concepts, expert consulting, and independent security audits tailored to complex risks.',
+    title: 'Strategic Security Management, Consulting & Audits',
+    desc: '360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.',
     href: '/security-management',
   },
   {
@@ -28,17 +28,11 @@ const services = [
   {
     num: '04',
     title: 'Security Intelligence & Risk Consulting',
-    desc: 'Uncover the facts \u2014 no matter where they\'re hidden. Tactical approach. Global reach.',
+    desc: 'Uncover the facts — no matter where they\'re hidden. Tactical approach. Global reach.',
     href: '/intelligence',
   },
   {
     num: '05',
-    title: 'Independent Security Audits',
-    desc: 'Objective evaluations that reveal hidden vulnerabilities and deliver actionable strategies.',
-    href: '/security-audits',
-  },
-  {
-    num: '06',
     title: 'Elite Training & Capacity Building',
     desc: 'Hands-on programs that build real resilience in security, travel safety and medical response.',
     href: '/training',
@@ -121,8 +115,8 @@ export default function Home() {
               lineHeight: 1.1,
               marginBottom: '1.5rem',
             }}>
-              <span style={{ color: 'var(--text)' }}>Intelligence-Led</span><br />
-              <span className="text-gradient">Security Management</span>
+              <span style={{ color: 'var(--text)' }}>KASPIT Security –</span><br />
+              <span className="text-gradient">Austria's Premier Boutique for Intelligence-Led Security Management</span>
             </h1>
             <p className="hero-reveal" style={{
               fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
@@ -131,13 +125,11 @@ export default function Home() {
               lineHeight: 1.7,
               marginBottom: '2.5rem',
             }}>
-              Protecting what matters most with strategic precision
-              and absolute discretion. Austria's premier boutique
-              for elite security solutions.
+              Protecting what matters most with strategic precision and absolute discretion.
             </p>
             <div className="hero-reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-              <MetalCTA to="/contact" label="Request Risk Assessment" />
-              <MetalCTA to="/about" label="About KASPIT" secondary />
+              <MetalCTA to="/contact" label="Request a Confidential Risk Assessment" />
+              <MetalCTA to="/contact" label="Book a Private Consultation with Maxim" secondary />
             </div>
           </div>
         </div>
@@ -213,14 +205,10 @@ export default function Home() {
                 Founded on real operational excellence
               </h2>
               <p className="about-reveal" style={{ marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.8 }}>
-                KASPIT Security is the premium boutique arm of the international KASPIT Group. With branches
-                across Europe and the Middle East, we deliver intelligence-led, fully bespoke solutions that
-                protect your most valuable assets.
+                KASPIT Security is the premium boutique arm of the international KASPIT Group. With branches across Europe (Austria and Germany) and the Middle East (Israel), we deliver intelligence-led, fully bespoke solutions that protect your most valuable assets — your people, your operations and your peace of mind.
               </p>
               <p className="about-reveal" style={{ marginBottom: '2rem', fontSize: '1rem', lineHeight: 1.8 }}>
-                Every engagement is tailored to your exact risk environment. Whether you face complex
-                investigations, need sophisticated security architecture, global emergencies, or elite training,
-                KASPIT Security is the trusted partner that discerning executives choose.
+                Every engagement is tailored to your exact risk environment. This includes strategic security consulting and independent audits that identify vulnerabilities, strengthen resilience, and ensure compliance at the highest level. Whether you face complex investigations, need sophisticated security architecture with expert consulting and audits, global emergencies, or elite training, KASPIT Security is the trusted partner that discerning executives and corporations choose to stay ahead.
               </p>
               <MetalCTA to="/about" label="About Us" secondary className="about-reveal" />
             </div>
@@ -284,8 +272,8 @@ export default function Home() {
             All inquiries are handled with the highest level of discretion and personal attention.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-            <MetalCTA to="/contact" label="Request a Confidential Risk Assessment" />
-            <MetalCTA to="/contact" label="Book a Private Consultation" secondary />
+            <MetalCTA to="/contact" label="Request a Confidential Risk Assessment (free & no obligation)" />
+            <MetalCTA to="/contact" label="Book a Private Consultation with Maxim" secondary />
           </div>
         </div>
       </section>

@@ -14,8 +14,11 @@ export default function SecurityManagement() {
           <p style={{ marginBottom: '1.5rem' }}>
             KASPIT Security creates fully bespoke 360° security concepts that integrate risk assessment, executive protection, physical and technical measures, crisis preparedness, strategic consulting, and independent security audits into one seamless, intelligence-led strategy.
           </p>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Our consulting services help you design, optimize, and evolve your security posture. Our audits provide objective evaluations of existing systems, policies, and procedures — identifying gaps, recommending enhancements, and ensuring compliance with Austrian and international standards. Whether you require protection for corporate leadership, high-net-worth families, international operations, or sensitive sites, our solutions are designed around your specific threat landscape and business objectives.
+          </p>
           <p>
-            Whether you require protection for corporate leadership, high-net-worth families, international operations, or sensitive sites, our solutions are designed around your specific threat landscape and business objectives. Backed by the global infrastructure of the KASPIT Group and branches in Austria, Germany and Israel.
+            Backed by the global infrastructure of the KASPIT Group and branches in Austria, Germany and Israel, we deliver measurable security excellence that allows you to focus on success while we handle the risks with strategic depth.
           </p>
         </>
       }

@@ -38,7 +38,7 @@ export default function About() {
             Part of the international KASPIT Group
           </h1>
           <p className="reveal" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', maxWidth: '600px', lineHeight: 1.7 }}>
-            Founded on real operational excellence. Dedicated to absolute discretion, uncompromising quality, and measurable results.
+            Founded on real operational excellence.
           </p>
         </div>
       </section>

@@ -24,7 +24,7 @@ export default function Intelligence() {
             We utilise a full spectrum of disciplines — HUMINT, SIGINT, GEOINT, MASINT, OSINT, and TECHINT — combined with cutting-edge technology to reveal the hidden and unknown, even when no paper trail exists.
           </p>
           <p>
-            Backed by the international network of the KASPIT Group and branches in Austria, Germany and Israel, we turn complex global threats and opportunities into clear, actionable intelligence for executives, corporations and high-net-worth individuals.
+            Backed by the international network of the KASPIT Group and branches in Austria, Germany and Israel, we turn complex global threats and opportunities into clear, actionable intelligence for executives, corporations and high-net-worth individuals who demand the highest level of discretion and precision.
           </p>
         </>
       }

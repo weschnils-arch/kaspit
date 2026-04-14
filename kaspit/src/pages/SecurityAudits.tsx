@@ -15,7 +15,7 @@ export default function SecurityAudits() {
   return (
     <ServicePage
       label="Independent Audits"
-      headline={<>Security Audits &<br /><span className="text-gradient">Compliance Reviews</span></>}
+      headline={<>Independent Security Audits &<br /><span className="text-gradient">Compliance Reviews</span></>}
       subheadline="Objective evaluations that reveal hidden vulnerabilities and deliver clear, actionable strategies for lasting resilience."
       intro={
         <>
@@ -25,8 +25,11 @@ export default function SecurityAudits() {
           <p style={{ marginBottom: '1.5rem' }}>
             Our audits combine deep intelligence expertise with strategic consulting to deliver an objective, comprehensive assessment of your current security posture — across physical protection, procedures, policies, technology, crisis preparedness, and compliance.
           </p>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Supported by the international network of the KASPIT Group, every audit is tailored to your specific industry, threat landscape, and organisational needs. We identify gaps others miss, quantify risks with precision, and provide prioritised, practical recommendations that strengthen your protection and reduce exposure.
+          </p>
           <p>
-            We identify gaps others miss, quantify risks with precision, and provide prioritised, practical recommendations that strengthen your protection and reduce exposure.
+            Whether you require a full enterprise-wide audit, targeted reviews of executive protection programs, due diligence for international operations, or compliance assessments against Austrian and international standards, KASPIT Security delivers the clarity and strategic advantage that discerning clients demand.
           </p>
         </>
       }
@@ -65,10 +68,11 @@ export default function SecurityAudits() {
         { step: 'Thorough on-site and remote assessment', desc: 'Multi-disciplinary evaluation using proven intelligence methodologies and advanced analytical tools.' },
         { step: 'Detailed findings & risk mapping', desc: 'Clear presentation of vulnerabilities, their potential impact, and likelihood.' },
         { step: 'Actionable recommendations & roadmap', desc: 'Prioritised, practical steps with timelines, responsible parties, and estimated effort.' },
-        { step: 'Optional implementation support', desc: 'We can assist with rollout and conduct verification audits to confirm improvements.' },
+        { step: 'Optional implementation support & follow-up audit', desc: 'We can assist with rollout and conduct verification audits to confirm improvements.' },
       ]}
       ctaText="Gain clarity and confidence in your security posture."
       ctaBtn="Request a Confidential Security Audit"
+      ctaSecondary="Book a Private Consultation"
     />
   )
 }

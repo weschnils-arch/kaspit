@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--text-dim)', maxWidth: '280px' }}>
-              Austria's premier boutique for intelligence-led security management. Part of the international KASPIT Group.
+              Austria's elite intelligence-led security atelier. Part of the international KASPIT Group.
             </p>
             <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', letterSpacing: '0.05em' }}>Vienna, Austria</span>
@@ -73,6 +73,7 @@ export default function Footer() {
               {[
                 { label: 'About Us', href: '/about' },
                 { label: 'The KASPIT Advantage', href: '/advantage' },
+                { label: 'Insights', href: '/insights' },
                 { label: 'Contact', href: '/contact' },
               ].map(s => (
                 <li key={s.href}>

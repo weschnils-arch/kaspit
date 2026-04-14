@@ -3,17 +3,17 @@ import ServicePage from './ServicePage'
 const programs = [
   {
     title: 'Security Training',
-    desc: 'Precision shooting (pistol and rifle), Krav Maga adapted for executives, advanced surveillance detection and anti-ambush techniques.',
+    desc: 'Develop the mindset and physical skills that keep you safe in any environment. Our programs include precision shooting (pistol and rifle – defensive and tactical applications), Krav Maga specifically adapted for executives (practical self-defence, threat neutralization and de-escalation), and advanced surveillance detection and anti-ambush techniques.',
     items: ['Precision shooting — defensive & tactical', 'Executive Krav Maga & de-escalation', 'Surveillance detection & anti-ambush'],
   },
   {
-    title: 'Travel Safety & HEAT',
-    desc: 'Hostile Environment Awareness Training — secure travel planning, situational awareness, kidnap avoidance, high-risk environment preparation.',
+    title: 'Travel Safety & HEAT Training',
+    desc: 'Prepare your people to operate confidently in any part of the world. Our Hostile Environment Awareness Training (HEAT) covers secure travel planning, situational awareness, kidnap avoidance, high-risk environment preparation and crisis response protocols. Each session is customised to your destinations and threat levels.',
     items: ['Secure travel planning', 'Kidnap avoidance protocols', 'Crisis response procedures'],
   },
   {
     title: 'Medical Training',
-    desc: 'Delivered with Critical Knowledge — official Stop The Bleed® Partner in Austria. Immersive, scenario-based trauma care training.',
+    desc: 'When seconds count, knowledge saves lives. Our medical training programs are delivered through our partners at Critical Knowledge – official Stop The Bleed® Partner in Austria. Using highly realistic wound simulations, participants receive immersive, scenario-based training including official Stop The Bleed® certification, Active First Responder trauma care, rapid haemorrhage control, tourniquet application and immediate life-saving interventions.',
     items: ['Official Stop The Bleed® certification', 'Active First Responder trauma care', 'Tourniquet & haemorrhage control'],
   },
 ]
@@ -23,7 +23,7 @@ export default function Training() {
     <ServicePage
       label="Elite Training"
       headline={<>Elite Training &<br /><span className="text-gradient">Capacity Building</span></>}
-      subheadline="Hands-on, intelligence-informed programs that equip executives, teams and high-net-worth individuals with practical skills for real-world threats."
+      subheadline="Hands-on, intelligence-informed programs that equip executives, teams and high-net-worth individuals with practical skills for real-world threats. Delivered to the same elite standards as our operational services."
       intro={
         <>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -33,7 +33,7 @@ export default function Training() {
             Every program is intelligence-informed, scenario-based and tailored to your exact risk profile, turning theory into muscle memory and confidence.
           </p>
           <p>
-            Conducted in small private groups or one-to-one format with absolute discretion and supported by the international infrastructure of the KASPIT Group across Austria, Germany and Israel.
+            Conducted in small private groups or one-to-one format with absolute discretion and supported by the international infrastructure of the KASPIT Group, our training bridges the gap between awareness and capability across our branches in Austria, Germany and Israel.
           </p>
         </>
       }

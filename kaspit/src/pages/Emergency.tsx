@@ -15,14 +15,14 @@ export default function Emergency() {
     <ServicePage
       label="Emergency Assistance"
       headline={<>Emergency Assistance &<br /><span className="text-gradient">Duty of Care</span></>}
-      subheadline="Rapid worldwide emergency response combined with comprehensive Duty of Care solutions — 24/7, anywhere in the world."
+      subheadline="Rapid worldwide emergency response combined with comprehensive Duty of Care solutions for your people and operations — 24/7, anywhere in the world."
       intro={
         <>
           <p style={{ marginBottom: '1.5rem' }}>
             KASPIT Security delivers immediate, intelligence-supported emergency assistance and comprehensive Duty of Care solutions anywhere in the world. With decades of proven operational excellence in high-risk environments and the international reach of the KASPIT Group, we maintain a global network of trusted assets and a 24/7 command structure to respond instantly in any situation.
           </p>
           <p>
-            From medical evacuations and crisis extraction to full corporate Duty of Care programmes for travelling executives and international teams, we combine proactive monitoring, situational awareness and seamless coordination to protect your people and operations at every step.
+            From medical evacuations and crisis extraction to full corporate Duty of Care programmes for travelling executives and international teams, we combine proactive monitoring, situational awareness and seamless coordination to protect your people and operations at every step. Your safety is our mission.
           </p>
         </>
       }
@@ -60,7 +60,7 @@ export default function Emergency() {
         { step: 'Post-incident support', desc: 'Debrief, psychological support, and resilience building for complete recovery.' },
       ]}
       ctaText="Ensure your global Duty of Care is professionally covered."
-      ctaBtn="Request a Confidential Review"
+      ctaBtn="Request a Confidential Review today"
     />
   )
 }
